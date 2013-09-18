@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Display HttpRequest meta</title>
+</head>
+<body>
+    <h1>Information about the URL</h1>
+    <table>
+        <tr><td>Path</td><td>{{ path }}</td></tr>
+        <tr><td>Host</td><td>{{ host }}</td></tr>
+        <tr><td>Full Path</td><td>{{ full_path }}</td></tr>
+        <tr><td>Secure?</td><td>{{ secure }}</td></tr>
+    </table>
+    <h2>Other Information about the Request</h2>
+    <table>
+    {% for k, v in values %}
+    <tr>
+        <td>{{ k }}</td>
+        <td>{{ v }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
