@@ -10,6 +10,7 @@ urlpatterns = patterns('mysite.views',
     url(r'^time/$', 'current_datetime'),
     url(r'^time/plus/(?P<h>\d{1,2})/$', 'hours_ahead'),
     url(r'^meta/$', 'display_meta'),
+    url(r'^login/$', 'user_login'),
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^mysite/', include('mysite.foo.urls')),

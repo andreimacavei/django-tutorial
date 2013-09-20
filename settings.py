@@ -1,4 +1,5 @@
 # Django settings for mysite project.
+from django.conf import global_settings
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -93,6 +94,12 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+)
+
+# List of custom Context Processors
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    # If this is enabled, every RequestContext will contain a request variable
+    # django.core.context_processors.request
 )
 
 MIDDLEWARE_CLASSES = (
