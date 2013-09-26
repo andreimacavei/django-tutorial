@@ -6,8 +6,12 @@
 <body>
     <h1>Email sent successfully</h1>
     <h2>Thank you for your feedback. </h2>
-    {%if email %}
-    Your email is {{ email }}.
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
     {% endif %}
 </body>
 </html>

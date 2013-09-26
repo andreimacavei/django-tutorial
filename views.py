@@ -1,7 +1,8 @@
 from django.template.loader import get_template
-from django.template import Context
+from django.template import Context, RequestContext
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.contrib import messages
 import datetime
 import MySQLdb
 
@@ -18,7 +19,7 @@ def user_login(request):
         if not request.POST.get('username', ''):
             errors.append('Enter your username !')
         else:
-            username = request.POST.['username']
+            username = request.POST['username']
         if not request.POST.get('password', ''):
             errors.append('Password required !')
         else:
@@ -28,7 +29,11 @@ def user_login(request):
             user['username'] = username
             user['password'] = password
             return render(request, 'login_success.html', {'user': user})
-    return render(request)
+            # return HttpResponseRedirect('/login/success/')
+    return render(request, 'login_form.html', {'errors': errors})
+
+def login_success(request):
+    return render(request, 'login_success.html')
 
 def current_datetime(request):
     now = datetime.datetime.now()

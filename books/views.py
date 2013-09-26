@@ -9,7 +9,7 @@ def search(request):
         q = request.GET['q'].encode("utf-8")
         if not q:
             errors.append('Enter a search term.')
-        elif len(q) > 20:
+        elif len(q) > 30:
             errors.append('Please enter at most 20 characters.')
         else:
             books = Book.objects.filter(title__icontains=q)

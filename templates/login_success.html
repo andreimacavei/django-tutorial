@@ -6,7 +6,7 @@
 <body>
     You are now logged in.
     Your credentials are:
-    <p>Username: {{ user.username }}</p>
-    <p>Password: {{ user.password }}</p>
+    <h2>Your username: {{ user.username|safe }}</h2>
+    <h2>Your password: {{ user.password }}</h2>
 </body>
 </html>

@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template import RequestContext
 from mysite.contact.forms import ContactForm
+from django.contrib import messages
 
 def contact(request):
     if request.method == 'POST':
@@ -15,8 +16,8 @@ def contact(request):
                 cd.get('email', 'noreply@example.com'),
                 ['andrei.macavei@eaudeweb.ro'],
             )
-            url = "?email=" + cd['email']
-            return HttpResponseRedirect('/contact/thanks/' + url)
+            messages.success(request, "Your email is {}".format(cd['email']))
+            return HttpResponseRedirect('/contact/thanks/')
     else:
         form = ContactForm(
             # initial={'subject': 'I love your site!'}
@@ -24,10 +25,4 @@ def contact(request):
     return render(request, 'contact_form.html', {'form': form})
 
 def success(request):
-    if request.method == 'GET' and request.GET:
-        email = request.GET['email']
-    elif request.method == 'POST':
-        email = request.POST['email']
-    else:
-        return HttpResponseRedirect('/contact/')
-    return render(request, 'contact_success.html', {'email': email})
+    return render(request, 'contact_success.html')

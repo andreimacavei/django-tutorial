@@ -99,7 +99,9 @@ TEMPLATE_LOADERS = (
 # List of custom Context Processors
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     # If this is enabled, every RequestContext will contain a request variable
-    # django.core.context_processors.request
+    # 'django.core.context_processors.request',
+    # This enables the use of messages
+    'django.contrib.messages.context_processors.messages',
 )
 
 MIDDLEWARE_CLASSES = (
