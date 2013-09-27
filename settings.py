@@ -1,11 +1,12 @@
 # Django settings for mysite project.
 from django.conf import global_settings
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
+    ('Andrei GM', 'andrei.macavei@eaudeweb.ro'),
 )
 
 MANAGERS = ADMINS

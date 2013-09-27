@@ -32,7 +32,7 @@ urlpatterns += patterns('',
     url(r'^book/$', views.objects_list, {'model': models.Book}),
     url(r'^search/$', views.search),
     url(r'^author/$', views.objects_list, {'model': models.Author}),
-    url(r'^about/'. TemplateView.as_view(template_name="about.html")),
+    url(r'^about/', TemplateView.as_view(template_name="about.html")),
     # url(r'^about/$', direct_to_template, {'template': 'about.html'}),
     # url(r'^about/(\w+)/$', views.about_pages),
 )
