@@ -1,5 +1,5 @@
 from django.template.loader import get_template
-from django.template import Context, RequestContext
+from django.template import Context, RequestContext, TemplateDoesNotExist
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib import messages

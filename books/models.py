@@ -53,7 +53,7 @@ class PersonManager(models.Manager):
             SELECT DISTINCT name
             FROM testdb
             WHERE last_name = %s""", [last_name])
-        return [row[0] for row in curso.fetchone()]
+        return [row[0] for row in cursor.fetchone()]
 
 class Person(models.Model):
     first_name = models.CharField(max_length=20)
